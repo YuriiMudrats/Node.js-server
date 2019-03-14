@@ -1,9 +1,29 @@
-const http =require('http')
-const routes=require('./routes')
+//MAIN MODULES
+const express = require('express')
+const bodyParser = require('body-parser')
+const path=require('path')
 
-const config=require('./config')
+//ROUTERS
+const adminRoutes = require('./src/routes/admin')
+const shopRoutes = require('./src/routes/shop')
+
+//CONFIG
+const config = require('./config')
 
 
-const server=http.createServer(routes)
+const app = express()
 
-server.listen(config.PORT)
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+
+
+
+app.use('/admin', adminRoutes)
+app.use(shopRoutes)
+
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname,'src','views','404.html'))
+})
+//LISTENER
+app.listen(config.PORT)
