@@ -1,0 +1,9 @@
+/* U can write style this!!! */
+header{
+    background: gray;
+    border-radius: 5px;
+    display: flex;    
+}
+.shop_title{
+    color:red
+}
