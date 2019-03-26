@@ -15,6 +15,11 @@ html(lang="en")
                         a.active(href="admin/add-product") Add products
                     li
                         a.active(href="/") Shop
-         main
-            h1 My Products
-            p.shop_title  List of product                     
+        main
+            if prods.length<0
+                h1 My Products
+                p.shop_title  List of product                     
+            else 
+                each product in prods
+                    p.shop_title  List of product
+                    p1 #{product.title} 
