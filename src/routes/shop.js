@@ -4,13 +4,10 @@ const path=require('path')
 
 const router = express.Router();
 
-const {products}=require("./admin")
+const {products}=require("../controllers/products")
+const productsController=require('../controllers/products')
 
 
-router.get('/', (req, res, next) => {  
-    console.log('shop.js',products) 
-    res.render('shop', {prods:products}) 
-    // res.sendFile(path.join(__dirname,'../views', 'shop.html'))
-})
+router.get('/', productsController.getProductsList)
 
 module.exports = router

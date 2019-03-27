@@ -4,21 +4,17 @@ const router = express.Router()
 const path=require('path')
 //Helper  func 
 const rootDir=require('../util/path')
+//CONTROLLERS
+const productsController=require('../controllers/products')
 
-const products=[]
+//MODEL
+
+
 // /admin/add-product=> GET
-router.get('/add-product', (req, res, next) => {   
-    res.sendFile(path.join(__dirname,'../views', 'add-product.html'))
-})
+router.get('/add-product', productsController.getProducts)
 
 // /admin/add-product=> POST
-router.post('/product', (req, res, next) => {
-    console.log(req.body, 'to product')
-    products.push({title:req.body.title})
-    console.log(products)
-    res.redirect('/')
-})
+router.post('/product', productsController.postAddProducts)
 
 
-exports.routes = router
-exports.products=products
+module.exports=router

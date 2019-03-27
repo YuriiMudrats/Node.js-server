@@ -10,6 +10,9 @@ const shopRoutes = require('./src/routes/shop')
 //CONFIG
 const config = require('./config')
 
+//CONTROLLERS
+const errorController=require('./src/controllers/errors')
+
 
 const app = express()
 
@@ -23,11 +26,9 @@ app.use(express.static(path.join(__dirname,'public')))
 
 
 
-app.use('/admin', adminRoutes.routes)
+app.use('/admin', adminRoutes)
 app.use(shopRoutes)
 
-app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname,'src','views','404.html'))
-})
+app.use(errorController.get404)
 //LISTENER
 app.listen(config.PORT)
