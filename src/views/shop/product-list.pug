@@ -12,9 +12,15 @@ html(lang="en")
             nav
                 ul
                     li
-                        a.active(href="admin/add-product") Add products
-                    li
                         a.active(href="/") Shop
+                    li
+                        a.active(href="/") Products
+                    li
+                        a.active(href="/") Cart
+                    li
+                        a.active(href="admin/add-product") Add Product
+                    li
+                        a.active(href="/") Admin Product           
         main
             if prods.length<0
                 h1 My Products
