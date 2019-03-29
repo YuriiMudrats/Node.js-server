@@ -4,10 +4,16 @@ const path=require('path')
 
 const router = express.Router();
 
-const {products}=require("../controllers/products")
-const productsController=require('../controllers/products')
+const {products}=require("../controllers/shop")
+const productsController=require('../controllers/shop')
 
 
-router.get('/', productsController.getProductsList)
+router.get('/', productsController.getIndex)
+
+router.get('/products',productsController.getProductsList)
+
+router.get('/cart',productsController.getCart)
+
+router.get('/checkout',productsController.getCheckout)
 
 module.exports = router

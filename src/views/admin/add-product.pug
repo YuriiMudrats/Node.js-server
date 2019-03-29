@@ -15,5 +15,12 @@ html(lang="en")
                         a.active(href="/") Shop
         main
             form(action="/admin/product" method="POST")
-                input(type="text" name="title")
+                label(for='title') Title
+                    input(type="text" name="title")
+                label(for='imageUrl') Image url                   
+                    input(type="text" name="imageUrl" id='imageUrl')
+                label(for='price') Price    
+                    input(type="number" name="price" id='price')
+                label(for='price') Description    
+                    textarea(name='description' rows='5' id='description')
                 button(type="submit") Send            

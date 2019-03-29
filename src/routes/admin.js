@@ -5,13 +5,16 @@ const path=require('path')
 //Helper  func 
 const rootDir=require('../util/path')
 //CONTROLLERS
-const productsController=require('../controllers/products')
+const productsController=require('../controllers/shop')
 
 //MODEL
 
 
 // /admin/add-product=> GET
 router.get('/add-product', productsController.getProducts)
+
+// /admin/products=> GET
+router.get('/products')
 
 // /admin/add-product=> POST
 router.post('/product', productsController.postAddProducts)
